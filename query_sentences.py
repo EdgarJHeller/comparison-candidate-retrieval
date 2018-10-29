@@ -10,7 +10,7 @@ CRAWL_DATA_REPOS = '/_search?q='
 
 def build_base(comparison_object):
     base_url =  ES_HOSTNAME + INDEX + CRAWL_DATA_REPOS
-    return base_url + 'text:(\"{}\"%20AND%20vs)'.format(comparison_object)
+    return base_url + 'text:(\"{}\"%20AND%20vs)&from=0&size=10000'.format(comparison_object)
 
 
 def retrieve_sentences(comparison_object):
