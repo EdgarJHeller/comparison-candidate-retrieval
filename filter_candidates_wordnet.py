@@ -6,16 +6,16 @@ import queue
 def filter_candidates_wordnet(comparison_object, candidates):
     hypernyms_comparison_object = get_all_hypernyms(comparison_object)
     print(hypernyms_comparison_object)
-    filtered_candicates = []
+    filtered_candidates = []
     for candidate in candidates:
         print('---', candidate, '---')
 
         candidate_hypernyms = get_all_hypernyms(candidate[0])
         print(candidate_hypernyms)
         if not set(hypernyms_comparison_object).isdisjoint(candidate_hypernyms):
-            filtered_candicates.append(candidate)
+            filtered_candidates.append(candidate)
 
-    return filtered_candicates
+    return filtered_candidates
 
 
 
