@@ -18,7 +18,7 @@ def filter(comparison_object, candidates):
         classification_result = classification_result[classification_result['max'] != 'NONE']
 
         print(len(classification_result))
-        if len(classification_result) > 50:
+        if len(classification_result) > 40:
             filtered_candidates.append((candidate, len(classification_result)))
 
     filtered_candidates = sorted(filtered_candidates, key=operator.itemgetter(1), reverse=True)
