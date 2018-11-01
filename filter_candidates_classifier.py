@@ -21,6 +21,7 @@ def filter(comparison_object, candidates):
         if len(classification_result) > 40:
             filtered_candidates.append((candidate, len(classification_result)))
 
+    filtered_candidates = [(candidate[0][0], candidate[1]*candidate[0][1]) for candidate in filtered_candidates]
     filtered_candidates = sorted(filtered_candidates, key=operator.itemgetter(1), reverse=True)
     return filtered_candidates
 
