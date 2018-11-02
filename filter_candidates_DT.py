@@ -18,7 +18,7 @@ def filter(comparison_object, candidates):
         # print([s for s in similarities_comparison_object if candidate[0] == s])
 
 
-    return filtered_candidates
+    return filtered_candidates[0:10]
 
 
 

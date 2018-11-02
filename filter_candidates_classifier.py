@@ -23,7 +23,7 @@ def filter(comparison_object, candidates):
 
     filtered_candidates = [(candidate[0][0], candidate[1]*candidate[0][1]) for candidate in filtered_candidates]
     filtered_candidates = sorted(filtered_candidates, key=operator.itemgetter(1), reverse=True)
-    return filtered_candidates
+    return filtered_candidates[0:10]
 
 
 def classify_sentences(sentences):
