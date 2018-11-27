@@ -69,3 +69,6 @@ evaluation_lists = {
     'hamburg': ['st pauli', 'berlin', 'munich', 'st pauli tickets', 'london', 'münchen', 'frankfurt', 'munich cost of living', 'bochum tickets', 'köln'],
     'wii u': ['switch', 'nintendo switch', 'wii', 'switch performance', 'switch specs', 'switch hardware', 'wii u premium', 'ps3', 'switch leistung', 'ps4'],
 }
+
+objects = ['MLB', 'a380', 'aac', 'ben hur', 'c', 'coal', 'concrete', 'earth', 'galaxy s4', 'germany', 'gold', 'hamburg', 'iron', 'java', 'lion', 'maple', 'metal',
+           'milk', 'model s', 'pennsylvania', 'petrol', 'plywood', 'poland', 'porcelain', 'python', 'rowing', 'steel', 'swimming', 'usa', 'walnut', 'wii u', 'windows 7']

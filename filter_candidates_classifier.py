@@ -10,20 +10,22 @@ def filter(comparison_object, candidates):
 
     filtered_candidates = []
     for candidate in candidates:
-        print('Start query sentences of', comparison_object, 'and', candidate)
+        # print('Start query sentences of', comparison_object, 'and', candidate)
         sentences = query_sentences.retrieve_sentences(comparison_object, candidate[0])
-        print('Start classifying the', len(sentences),'sentences...')
+        # print('Start classifying the', len(sentences),'sentences...')
+        if len(sentences) == 0:
+            continue
         classification_result = classify_sentences(prepare_sentence_DF(sentences, comparison_object, candidate[0]))
 
         classification_result = classification_result[classification_result['max'] != 'NONE']
 
-        print(len(classification_result))
+        # print(len(classification_result))
         if len(classification_result) > 40:
             filtered_candidates.append((candidate, len(classification_result)))
 
     filtered_candidates = [(candidate[0][0], candidate[1]*candidate[0][1]) for candidate in filtered_candidates]
     filtered_candidates = sorted(filtered_candidates, key=operator.itemgetter(1), reverse=True)
-    return filtered_candidates[0:10]
+    return [c[0] for c in filtered_candidates[0:10]]
 
 
 def classify_sentences(sentences):

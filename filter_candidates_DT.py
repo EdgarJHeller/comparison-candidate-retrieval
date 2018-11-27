@@ -10,7 +10,7 @@ def filter(comparison_object, candidates):
     similarities_comparison_object = get_all_similarities(comparison_object)
     filtered_candidates = []
     for candidate in candidates:
-        print('---', candidate, '---')
+        # print('---', candidate, '---')
 
         if any(candidate[0] == s or candidate[0] == re.sub('[^a-zA-Z0-9 ]', '', s)  for s in similarities_comparison_object):
             filtered_candidates.append(candidate[0])    
@@ -23,7 +23,7 @@ def filter(comparison_object, candidates):
 
 
 def get_all_similarities(comparison_object):
-    print(comparison_object)
+    # print(comparison_object)
     res = es.search(index = INDEX_NAME, size=10000, body={"query": {"match": {"first": comparison_object}}})
 
     # similar_words = [re.sub('[^a-zA-Z0-9 ]', '', hit['_source']['second']) for hit in res['hits']['hits']]
