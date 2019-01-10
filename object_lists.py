@@ -72,3 +72,23 @@ evaluation_lists = {
 
 objects = ['MLB', 'a380', 'aac', 'ben hur', 'c', 'coal', 'concrete', 'earth', 'galaxy s4', 'germany', 'gold', 'hamburg', 'iron', 'java', 'lion', 'maple', 'metal',
            'milk', 'model s', 'pennsylvania', 'petrol', 'plywood', 'poland', 'porcelain', 'python', 'rowing', 'steel', 'swimming', 'usa', 'walnut', 'wii u', 'windows 7']
+
+one_object = ['MLB']
+
+preSelectedObjects = [
+    'python', 'java',
+    'php', 'javascript',
+    'perl',
+    'ios', 'android',
+    'cuda', 'opencl',
+    'bluetooth', 'ethernet',
+    'bmw', 'toyota',
+    'apple', 'microsoft',
+    'gamecube', 'ps2',
+    'milk', 'beer',
+    'motorcycle', 'truck',
+    'oregon', 'michigan',
+    'pepsi', 'coca-cola',
+    'potato', 'steak',
+    'tennis', 'golf'
+  ]

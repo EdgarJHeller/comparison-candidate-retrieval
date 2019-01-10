@@ -7,7 +7,7 @@ import gzip
 
 BASE_URL = 'http://ltdata1.informatik.uni-hamburg.de/depcc/distributional-models/dependency_lemz-true_cooc-false_mxln-110_semf-true_sign-LMI_wpf-1000_fpw-1000_minw-5_minf-5_minwf-2_minsign-0.0_nnn-200/SimPruned/part-'
 
-for i in range(0,1,1):
+for i in range(0,59,1):
     index = ''
     for j in range(0,5-len(str(i)),1):
         index += '0'
@@ -18,5 +18,5 @@ for i in range(0,1,1):
     compressed_file = io.BytesIO(response.read())
     decompressed_file = gzip.GzipFile(fileobj=compressed_file)
 
-    with open('./data/part-{}.txt'.format(index), 'wb') as outfile:
+    with open('../data/part-{}.txt'.format(index), 'wb') as outfile:
         outfile.write(decompressed_file.read())

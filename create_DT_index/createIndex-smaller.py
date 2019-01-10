@@ -8,7 +8,7 @@ from evaluation_triples import triples
 
 
 
-FILE_PATH = "../download/small-data/"
+FILE_PATH = "../data/"
 ES_HOST = {"host" : "localhost", "port" : 9200}
 INDEX_NAME = 'dt-index'
 TYPE_NAME = 'triple'
@@ -45,7 +45,7 @@ total_time_start = time.time()
 for k in range(0,59,1):
     index = 0
     # build document index part (x)
-    document_name = 'part ({})'.format(str(k))
+    document_name = 'part-{}.txt'.format(str('%05d' % k))
     print('Indexing file', document_name, '.......')
 
     # load file
