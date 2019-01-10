@@ -4,6 +4,7 @@ from requests.auth import HTTPBasicAuth
 import json
 
 
+# return a list with sentenses that contain the comparison_object AND vs
 def retrieve_sentences(comparison_object, vs='vs'):
     url = build_url(comparison_object, vs)
     print(url)
@@ -12,7 +13,8 @@ def retrieve_sentences(comparison_object, vs='vs'):
     else:
         es_json = requests.get(url)
 
-    return extract_sentences(es_json)
+    sentences = extract_sentences(es_json)
+    return sentences
 
 
 def build_url(comparison_object, vs):
@@ -29,5 +31,4 @@ def extract_sentences(es_json):
     for hit in hits:
         text = hit['_source']['text']
         sentences.append(text)
-
     return sentences

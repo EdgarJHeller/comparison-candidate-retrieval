@@ -6,12 +6,16 @@ from textblob import TextBlob
 
 def extract_candidates(comparison_object, sentences):
     unique_candidates = {}
+    print('number of sentences:')
     print(len(sentences))
     for sentence in sentences:
 
         blob = TextBlob(sentence)
 
+        # candidate is a list of nounphrases from the sentence in sentences
         for candidate in blob.noun_phrases:
+
+            # TODO not shure why the first part before 'and' is necessary?
             if candidate not in [comparison_object, 'vs', 'vs.'] and is_candidate(candidate, comparison_object, sentence):
 
                 if candidate in unique_candidates:
@@ -23,6 +27,8 @@ def extract_candidates(comparison_object, sentences):
     return unique_candidates
 
 
+# candidate is a list of nounphrases from the sentence in sentences
+# returns true if the pattern in the sentence is comparison_object vs candidate or the other way around.
 def is_candidate(candidate, comparison_object, sentence):
     vs = ' (vs|vs.) '
     candidate = re.escape(candidate)

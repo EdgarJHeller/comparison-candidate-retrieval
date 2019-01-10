@@ -31,9 +31,11 @@ if __name__ == "__main__":
         writer = csv.writer(f)
         writer.writerows([['Comparison Object:', 'Candidates:']])
 
-    # iterate through preSelectedObjects in file object_lists
+    # the comparison object is now set as third parameter when main is called
+    # eg: python main.py reader reader python -> comparison object is "python"
     comparison_object = sys.argv[3]
-        # 
+    
+    # sentences is a list with sentenses that contain the comparison_object AND vs
     sentences = query_sentences.retrieve_sentences(comparison_object)
     candidates = extract_candidates.extract_candidates(comparison_object, sentences)
 
