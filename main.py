@@ -20,26 +20,26 @@ def get_percent_contained(comparison_object, selected_candidates):
 
 
 if __name__ == "__main__":
+    # write headlines to evaluation csv
     with open(EVALUATION_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
         writer = csv.writer(f)
         writer.writerows([['whithout', 'wordnet', 'classifier', 'DT']])
     
+    # write headlines to candidates csv
     with open(CANDIDATES_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
         writer = csv.writer(f)
         writer.writerows([['Comparison Object:', 'Candidates:']])
 
+    # iterate through preSelectedObjects in file object_lists
     for comparison_object in object_lists.preSelectedObjects:
-
+        # 
         sentences = query_sentences.retrieve_sentences(comparison_object)
         candidates = extract_candidates.extract_candidates(comparison_object, sentences)
 
         wordnet_filtered_candidates = filter_candidates_wordnet.filter(comparison_object, candidates)
 
         print('---------', comparison_object ,'---------')
-        print(first_ten_candidates)
         print(wordnet_filtered_candidates)
-        print(classifier_filtered_candidates)
-        print(DT_filtered_candidates)
         
 
 

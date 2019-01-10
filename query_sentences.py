@@ -4,16 +4,6 @@ from requests.auth import HTTPBasicAuth
 import json
 
 
-ES_HOSTNAME = 'http://ltdemos.informatik.uni-hamburg.de/depcc-index/'
-INDEX = 'depcc'
-CRAWL_DATA_REPOS = '/_search?q='
-
-
-def build_url(comparison_object, vs):
-    base_url = ES_HOSTNAME + INDEX + CRAWL_DATA_REPOS
-    return base_url + 'text:(\"{}\"%20AND%20\"{}\")&from=0&size=10000'.format(comparison_object, vs)
-
-
 def retrieve_sentences(comparison_object, vs='vs'):
     url = build_url(comparison_object, vs)
     print(url)
@@ -23,6 +13,14 @@ def retrieve_sentences(comparison_object, vs='vs'):
         es_json = requests.get(url)
 
     return extract_sentences(es_json)
+
+
+def build_url(comparison_object, vs):
+    esHostname = 'http://ltdemos.informatik.uni-hamburg.de/depcc-index/'
+    index = 'depcc'
+    crawlDataRepos = '/_search?q='
+    url = esHostname + index + crawlDataRepos + 'text:(\"{}\"%20AND%20\"{}\")&from=0&size=10000'.format(comparison_object, vs)
+    return url
 
 
 def extract_sentences(es_json):
