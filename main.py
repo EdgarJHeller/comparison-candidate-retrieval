@@ -6,6 +6,7 @@ import filter_candidates_DT
 import query_DT_candidates
 import object_lists
 import csv
+import sys
 
 
 CANDIDATES_CSV_PATH = './results/candidates.csv'
@@ -31,24 +32,24 @@ if __name__ == "__main__":
         writer.writerows([['Comparison Object:', 'Candidates:']])
 
     # iterate through preSelectedObjects in file object_lists
-    for comparison_object in object_lists.preSelectedObjects:
+    comparison_object = sys.argv[3]
         # 
-        sentences = query_sentences.retrieve_sentences(comparison_object)
-        candidates = extract_candidates.extract_candidates(comparison_object, sentences)
+    sentences = query_sentences.retrieve_sentences(comparison_object)
+    candidates = extract_candidates.extract_candidates(comparison_object, sentences)
 
-        wordnet_filtered_candidates = filter_candidates_wordnet.filter(comparison_object, candidates)
+    wordnet_filtered_candidates = filter_candidates_wordnet.filter(comparison_object, candidates)
 
-        print('---------', comparison_object ,'---------')
-        print(wordnet_filtered_candidates)
-        
+    print('---------', comparison_object ,'---------')
+    print(wordnet_filtered_candidates)
+    
 
 
-        with open(CANDIDATES_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
-            writer = csv.writer(f)
-            if not wordnet_filtered_candidates:
-                writer.writerows([[comparison_object]])
-            else:
-                writer.writerow([comparison_object] + wordnet_filtered_candidates)
+    with open(CANDIDATES_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
+        writer = csv.writer(f)
+        if not wordnet_filtered_candidates:
+            writer.writerows([[comparison_object]])
+        else:
+            writer.writerow([comparison_object] + wordnet_filtered_candidates)
 
 
 '''
