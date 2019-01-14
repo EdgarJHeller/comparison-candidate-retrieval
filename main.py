@@ -42,6 +42,9 @@ if __name__ == "__main__":
     candidates = extract_candidates.extract_candidates(comparison_object, sentences)
 
     wordnet_filtered_candidates = filter_candidates_wordnet.filter(comparison_object, candidates)
+    
+    while len(wordnet_filtered_candidates) < 10:
+        wordnet_filtered_candidates.append('')
 
     print('---------', comparison_object ,'---------')
     print(wordnet_filtered_candidates)
@@ -52,7 +55,8 @@ if __name__ == "__main__":
     ggl_suggestions = [item[0] for item in ggl_suggestions]
     # each suggestions stripped of the comparison object and the 'vs'
     ggl_suggestions = [s[len(comparison_object + ' vs '): ] for s in ggl_suggestions]
-    
+    print(ggl_suggestions)
+
     dist_matrix = calculate_levenshtein_distance.get_distance_matrix(ggl_suggestions, wordnet_filtered_candidates)
     levenshtein_distance_minima = dist_matrix.min(1)
     print(levenshtein_distance_minima)
