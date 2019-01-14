@@ -7,6 +7,8 @@ import query_DT_candidates
 import object_lists
 import csv
 import sys
+import calculate_levenshtein_distance
+import query_ggl_suggestions
 
 
 CANDIDATES_CSV_PATH = './results/candidates.csv'
@@ -44,6 +46,19 @@ if __name__ == "__main__":
     print('---------', comparison_object ,'---------')
     print(wordnet_filtered_candidates)
     
+    # the suggestions as a list of lists
+    ggl_suggestions = query_ggl_suggestions.get_suggestions(comparison_object + ' vs')
+    # the suggestions of a list of strings
+    ggl_suggestions = [item[0] for item in ggl_suggestions]
+    # each suggestions stripped of the comparison object and the 'vs'
+    ggl_suggestions = [s[len(comparison_object + ' vs '): ] for s in ggl_suggestions]
+    
+    dist_matrix = calculate_levenshtein_distance.get_distance_matrix(ggl_suggestions, wordnet_filtered_candidates)
+    levenshtein_distance_minima = dist_matrix.min(1)
+    print(levenshtein_distance_minima)
+    print(levenshtein_distance_minima.sum())
+    
+
 
 
     with open(CANDIDATES_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
@@ -51,7 +66,8 @@ if __name__ == "__main__":
         if not wordnet_filtered_candidates:
             writer.writerows([[comparison_object]])
         else:
-            writer.writerow([comparison_object] + wordnet_filtered_candidates)
+            writer.writerow(['ccr'] + [comparison_object] + wordnet_filtered_candidates)
+            writer.writerow(['ggl'] + [comparison_object] + ggl_suggestions)
 
 
 '''
