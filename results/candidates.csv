@@ -1,15 +1,65 @@
 Comparison Object:,Candidates:
+ccr,MLB,,,,,,,,,,
+ggl,MLB,japan, nfl,mqb,japan 2018, nba,nfl revenue,japan roster,npb,nfl salaries,nba salary
+ccr,a380,,,,,,,,,,
+ggl,a380,777,a350,a320,antonov 124,737,an 225,747,beluga,787,dreamliner
+ccr,aac,,,,,,,,,,
+ggl,aac,mp3,aptx,ac3,sbc,ogg,flac,wav,m4a,opus,alac
+ccr,ben hur,,,,,,,,,,
+ggl,ben hur,lawrence of arabia, gladiator, gone with the wind,spartacus,the ten commandments,quo vadis,coronel,9 de julio,9 de julio rafaela,original
+ccr,c,java,net,python,cabal,fusion,ats,sis,acute,lisp,ranger
+ggl,c,c++,e klasse,python,c++ performance,java,go,fortran,rust,pascal,java performance
+ccr,coal,harper,charcoal,biomass,wood,climate,passengers,ng,asio,fish,nukes
+ggl,coal,charcoal,natural gas,coke,wood,nuclear,coal,solar,renewable energy,propane forge,nuclear energy
+ccr,concrete,abstract,asphalt,cement,wood,fiberglass,bullshit,brick,art,tile,resin
+ggl,concrete,cement,specific,asphalt,abstract,asphalt driveway, concrete pavers,abstract nouns,oncrete,abstract thinking,asphalt roads
+ccr,earth,moon,mars,china,venus,asteroid,aliens,balloons,mercury,titan,humans
+ggl,earth,the spider,the flying saucers,shadow destroyer,wind summoner,mars,jupiter,sun,sun size,the spider 2001,moon size
+ccr,galaxy s4,,,,,,,,,,
+ggl,galaxy s4,s5,s7,huawei p20 lite,s6,a6,j5,a5,s8,a3 2017,ipad pro
+ccr,germany,,,,,,,,,,
+ggl,germany,usa,france,russia,italy,canada,england,,brazil,austria,netherlands
+ccr,gold,silver,black,platinum,maroon,stocks,purple,wagner,inflation,paper,bonds
+ggl,gold,platin,silber,palladium,dax chart,silver,bitcoin,aktien,msci world,dollar,dax
+ccr,hamburg,,,,,,,,,,
+ggl,hamburg,berlin,st pauli,münchen,,nürnberg,köln,kiel,frankfurt,wien,köln übertragung
+ccr,iron,hulk,anemia,daredevil,batman,anaemia,aluminum,bane,noel,priest,raptors
+ggl,iron,steel,bronze,rocket,steamer, and iron,ferrous sulfate,driver swing,hulk,aluminum,aluminum block
+ccr,java,net,python,ruby,script,flash,android,oracle,flex,programming,erlang
+ggl,java,python,c++,php,javascript,kotlin,go,go performance,.net core,c++ performance 2018,.net
+ccr,lion,tiger,rabbit,buffalo,he-man,bear,monkey,rhino,midgets,pig,zebra
+ggl,lion,tiger,buffalo,hyena,bear,,dog,wolf,tiger fight,elephant,lipo
+ccr,maple,bruins,rangers,sabres,flyers,devils,lightning,panthers,penguins,capitals,hurricanes
+ggl,maple,matlab,mathematica,rosewood,kapla,python,pau ferro,mathcad,rosewood bass,oak,birch drums
+ccr,metal,plastic,wood,metalhead,pvc,polymer,ceramic,folk,rap,bacteria,punk
+ggl,metal,rock,opengl,opencl,vulkan,techno,islam,,cuda,opengl performance,punk
+ccr,milk,silk,dark,whey,meat,juice,cream,soda,yogurt,frappes,cats
+ggl,milk,yogurt,cream,almond milk,curd,egg,water,soy milk,heavy cream,melk,glossier
+ccr,model s,,,,,,,,,,
+ggl,model s,model 3,model x,panamera,porsche,aventador,bmw,del s,bmw i8,bmw 7,mission e
+ccr,pennsylvania,,,,,,,,,,
+ggl,pennsylvania,mimms,new jersey,new york,california,ohio,texas,massachusetts,maryland,virginia,philadelphia
+ccr,petrol,diesel,plug-in,hybrid,,,,,,,
+ggl,petrol, türkis,diesel,gas,diesel car,diesel engine,opnice,diesel calculator,diesel car india,diesel suv,diesel engine difference
+ccr,plywood,slats,melamine,timber,,,,,,,
+ggl,plywood,mdf,osb,particle board,solid wood,vs plywood,osb subfloor,wood,hardwood,melamine,mdf cabinets
+ccr,poland,,,,,,,,,,
+ggl,poland,germany,portugal,italy,czech republic football,portugal 2018,czech republic,portugal uefa nations league,portugal highlights,portugal live stream,italy live stream
+ccr,porcelain,ceramic,resin,bonding,ceramics,china,melamine,zirconia,stainless,polymer,plumbing
+ggl,porcelain,ceramic,bone china,stoneware,marble,china,composite veneers, glass,stainless steel grill,gold crown,metal crown
 ccr,python,ruby,java,boa,alligator,net,cat,gator,crocodile,node,arc
 ggl,python,java,c++,r,php,matlab,javascript,ruby,perl,anaconda,c++ performance
-Comparison Object:,Candidates:
-ccr,house,car,condo,hurricane,god,boat,spouse,moisture,grey,er,skyscraper
-ggl,house,techno,god,deep house,senate,hurricane,,senate powers,prof,prof linz,apartment
-Comparison Object:,Candidates:
-Comparison Object:,Candidates:
-Comparison Object:,Candidates:
-Comparison Object:,Candidates:
-ccr,ethernet,wifi,slip,wireless,ppp,fibre,serial,gigabit,fiber,,
-ggl,ethernet,wlan,lan,usb 3.0,usb,internet,can,ethercat,ip,infiniband,gigabit ethernet
-Comparison Object:,Candidates:
-ccr,ethernet,wifi,slip,wireless,ppp,fibre,serial,gigabit,fiber,,
-ggl,ethernet,wlan,lan,usb 3.0,usb,internet,can,ethercat,ip,infiniband,gigabit ethernet
+ccr,rowing,sailing,sculling,,,,,,,,
+ggl,rowing,running,cycling,pull ups,treadmill,swimming,spinning,kayaking,running cardio,nd rowing,running calories
+ccr,steel,aluminum,wood,cedar,brass,porter,alloy,alum,graphite,carbon,plastic
+ggl,steel,titanium,fire pokemon,iron,fiberglass door,aluminum,alloy wheels,brass ammo,aluminum bike,graphite irons,graphite shafts
+ccr,swimming,running,centre,catawba,treading,breakdown,guns,walking,franklin,sexton,rolling
+ggl,swimming,running, gym,running calories,running cardio,jogging,cycling,running for weight loss,weight lifting,treadmill,rowing
+ccr,usa,japan,china,brazil,europe,eu,argentina,panama,can,czech,stetson
+ggl,usa,china,deutschland,germany,deutschland leben,udssr,russland,kolumbien,iran,eu,europa
+ccr,walnut,diamond,watermelon,underwood,girls,pecans,,,,,
+ggl,walnut,pecan,almond,oak,black walnut,mahogany,maple,black walnut wood,maple cutting board,cherry,peanut
+ccr,wii u,,,,,,,,,,
+ggl,wii u,wii,nintendo switch,switch,switch leistung,ps4,wii u premium,3ds,switch hardware,switch deutsch,switch graphics
+ccr,windows 7,,,,,,,,,,
+ggl,windows 7,windows 10,windows 10 gaming,windows 10 2018,windows 10 gaming 2018,windows 8,8.1,windows 10 gaming performance,vista,8 vs 10,windows 10 performance
