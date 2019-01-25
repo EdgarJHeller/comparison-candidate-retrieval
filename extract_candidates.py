@@ -15,7 +15,6 @@ def extract_candidates(comparison_object, sentences):
         # candidate is a list of nounphrases from the sentence in sentences
         for candidate in blob.noun_phrases:
 
-            # TODO not shure why the first part before 'and' is necessary?
             if candidate not in [comparison_object, 'vs', 'vs.'] and is_candidate(candidate, comparison_object, sentence):
 
                 if candidate in unique_candidates:
