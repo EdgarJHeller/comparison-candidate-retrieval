@@ -15,8 +15,7 @@ def filter(comparison_object, candidates):
         if not set(hypernyms_comparison_object).isdisjoint(candidate_hypernyms):
             filtered_candidates.append(candidate)
 
-    #return [c[0] for c in filtered_candidates[0:100]]
-    return filtered_candidates
+    return [c[0] for c in filtered_candidates]
 
 
 

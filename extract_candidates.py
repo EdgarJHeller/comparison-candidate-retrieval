@@ -33,7 +33,6 @@ def is_candidate(candidate, comparison_object, sentence):
     vs = ' (vs|vs.) '
     candidate = re.escape(candidate)
     pattern = '(' + candidate + vs + comparison_object + '|' + comparison_object + vs + candidate + ')'
-    # pattern = comparison_object + vs + candidate
     if re.match(pattern, sentence, re.IGNORECASE) is not None:
         # print(sentence)
         return True

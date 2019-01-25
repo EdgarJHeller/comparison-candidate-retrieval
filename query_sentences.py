@@ -31,4 +31,5 @@ def extract_sentences(es_json):
     for hit in hits:
         text = hit['_source']['text']
         sentences.append(text)
+
     return sentences
