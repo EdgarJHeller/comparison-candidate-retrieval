@@ -5,13 +5,13 @@ import filter_candidates_classifier
 import filter_candidates_DT
 import query_DT_candidates
 import object_lists
+import visualize_output
 import csv
 import sys
 import calculate_levenshtein_distance
 import query_ggl_suggestions
 import numpy as np
 import os
-
 
 #CANDIDATES_CSV_PATH = './results/candidates.csv'
 CANDIDATES_CSV_PATH = os.path.abspath("/home/hauke/Git/comparison-candidate-retrieval/results/candidates.csv")
@@ -27,33 +27,30 @@ def get_percent_contained(comparison_object, selected_candidates):
 
     return len(intersection) / len(evaluation_candidates)
 
+comparison_objects = []
+
+data = {}
+intersections_dict = {}
+precisions_dict = {}
+recalls_dict = {}
+f1_dict = {}
 
 if __name__ == "__main__":
-    # write headlines to candidates csv
-    #with open(CANDIDATES_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
-    #    writer = csv.writer(f)
-    #    writer.writerows([['Comparison Object:', 'Candidates:']])
-
-    # write headlines to evaluation csv
-    #with open(EVALUATION_CSV_PATH, 'a', newline='', encoding="UTF-8") as f:
-    #    writer = csv.writer(f)
-    #    writer.writerows([['ccr vs google', 'Comparison Object:', 'Levenshtein Distance Minima', 'LDM Sum', 'Matching Suggestions Sum']])
-
-    # the comparison object is now set as third parameter when main is called
-    # eg: python main.py reader reader python -> comparison object is "python"
-    #comparison_object = sys.argv[3]
     
     #for comparison_object in object_lists.objects:
     for filename in os.listdir(KEYWORD_TOOL_EXPORTS_DIRECTORY_PATH):
         if filename.endswith(".csv"):
             
             # the comparison object is taken from the keyword tool export file
-            #comparison_object = filename[22:-7]
-            comparison_object = str(filename[22:-7])
+            comparison_object = filename[22:-7]
+            # populate comparison_objects list
+            comparison_objects.append(comparison_object)
 
             # sentences is a list with sentenses that contain the comparison_object AND vs
             sentences = query_sentences.retrieve_sentences(comparison_object)
+            # candidates are sentences that match the pattern 'comparison_object vs <nounphrase>' or the other way around
             candidates = extract_candidates.extract_candidates(comparison_object, sentences)
+
             wordnet_filtered_candidates = filter_candidates_wordnet.filter(comparison_object, candidates)
             
             # append comparison object and 'vs' to suggestions to get the same format as suggestions from the keyword tool
@@ -87,9 +84,11 @@ if __name__ == "__main__":
             # the suggestions from the keyword tool are taken as the comparative list
             comparative_list = ggl_api_suggestions
 
-            # ~true positives:
+            # ~true positives (intersection):
             intersection_set_all = list(set(comparative_list) & set(ccr_suggestions_all))
             true_positives = len(intersection_set_all)
+            #intersections_counter.append(true_positives)
+            intersections_dict[comparison_object] = true_positives
 
             intersection_set_stripped = []
             for f in intersection_set_all:
@@ -101,26 +100,30 @@ if __name__ == "__main__":
             # ~false positives:
             false_positives = len(ccr_suggestions_all) - true_positives
 
-            # ~true negatives:
-            # ???
-
             # ~precision:
             if len(ccr_suggestions_all) == 0:
                 precision = 0
             else:
                 precision = true_positives / len(ccr_suggestions_all)
+            #precisions.append(precision)
+            precisions_dict[comparison_object] = precision
 
             # ~recall:
             if len(comparative_list) == 0:
                 recall = 0
             else:
                 recall = true_positives / len(comparative_list)
+            #recalls.append(recall)
+            recalls_dict[comparison_object] = recall
 
             # ~f1score:
             if precision == 0 or recall == 0:
                 f1score = 0
             else:
                 f1score = 1 / ((1 / recall) + (1 / precision)) / 2
+            #f1scores.append(f1score)
+            f1_dict[comparison_object] = f1score
+
 
             print('--- intersection of ccr suggestions and  all suggestions from the keyword tool: ---')
             print(intersection_set_all)
@@ -137,6 +140,12 @@ if __name__ == "__main__":
                 writer.writerows([['intersection stripped:']] + [intersection_set_stripped])
                 writer.writerows([['-----']])
 
+            # len(comparative_list), len(ccr_suggestions_all), true_positives, false_positives, false_negatives, precision ,recall ,f1score
+            numericals = [len(comparative_list), len(ccr_suggestions_all), true_positives, false_positives, false_negatives, precision ,recall ,f1score]
+            data[comparison_object] = numericals
+
             continue
         else:
             continue
+    
+    visualize_output.draw_scatter(comparison_objects, intersections_dict, precisions_dict, recalls_dict, f1_dict)

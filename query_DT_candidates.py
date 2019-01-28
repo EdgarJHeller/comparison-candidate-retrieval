@@ -7,12 +7,6 @@ INDEX_NAME = 'dt-index'
 es = Elasticsearch(hosts = [ES_HOST], timeout=300)
 
 
-
-
-
-
-
-
 def get_all_similarities(comparison_object):
     res = es.search(index = INDEX_NAME, size=10000, body={"query": {"match": {"first": comparison_object}}})
 
